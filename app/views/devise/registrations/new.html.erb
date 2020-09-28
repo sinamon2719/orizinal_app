@@ -9,10 +9,10 @@
         <%= devise_error_messages!%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :name%>
+            <%= f.label :nickname%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
+            <%= f.text_field :nickname, autofocus: true%>
           </div>
         </div>
         <div class='field'>
@@ -34,10 +34,10 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :password_confirmation%>
+            <%= f.label :encrypted_password%>
           </div>
           <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+            <%= f.password_field :encrypted_password, autocomplete: "off"%>
           </div>
         </div>
         <div class='actions'>
