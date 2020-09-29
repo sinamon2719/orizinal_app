@@ -3,7 +3,7 @@
   margin: 60px auto;
   padding: 60px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(231, 124, 23);
   border-radius: 5px;
 }
 .account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
@@ -35,7 +35,7 @@
 }
 .account-page .account-page__header .btn {
   margin-top: 20px;
-  color: #fff;
+  color: rgb(255, 255, 255);
   background-color: #ccc;
   font-size: 14px;
 }
@@ -70,7 +70,7 @@
   float: left;
   margin-top: 20px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: #e45d0f;
 }
 .account-page .field-label .field_with_errors {
   display: inline-block;
