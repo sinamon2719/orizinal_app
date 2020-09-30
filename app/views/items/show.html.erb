@@ -62,7 +62,7 @@
         <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
         <a href="#" class="btn btn-primary my-2">次のジャンルへ</a>
         <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-        <a href="#" class="btn btn-secondary my-2">TOPへ戻る</a>
+        <%=link_to 'TOPへ戻る', root_path, class:"btn btn-secondary my-2" %>
       </p>
     </div>
   </section>
@@ -93,12 +93,23 @@
           </div>
           <div class="btn-group">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
+                  <% if user_signed_in? && current_user.id == @item.user_id %>
+                  <% unless @item.user_item%>
+                  <%= link_to(edit_item_path(@item.id), method: :get, class: "item-red-btn") do%>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
+                  <% end %>
+                  <%= link_to(item_path(@item.id), method: :delete, class:'item-destroy') do%>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
+                  <% end %>
+                  <%end%>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                  <%else%>
+                  <% unless @item.user_item%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">購入</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">詳細</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                  <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
-          </div>
+                  <%end%>
+                  <%end%>
+          </div> 
     </li>
   <% end %>
 </ul>
