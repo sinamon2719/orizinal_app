@@ -10164,3 +10164,123 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.904);
 }
+
+input:valid{
+  background: transparent;
+}
+input:focus{
+  background: #DCEDC8;
+}
+.mark-orange-gradient{
+  background: linear-gradient(rgba(255, 81, 0, 0.3),rgb(241, 129, 0));
+  color:currentColor;
+  padding:1rem;
+}
+.mark-orange{
+  background: linear-gradient(rgba(255, 110, 42, 0.952),rgb(243, 87, 15));
+  color:currentColor;
+  padding:1rem;
+  background: linear-gradient(to bottom, rgba(255, 110, 7, 0.8) 0%, rgba(255, 134, 48, 0.8) 100%), url("/view/2.jpeg");
+}
+.mark-up{
+  background: linear-gradient(rgba(255, 110, 42, 0.952),rgb(243, 87, 15));
+  color:currentColor;
+  padding:1rem;
+  background: linear-gradient(to bottom, rgba(255, 110, 7, 0.8) 0%, rgba(255, 134, 48, 0.8) 100%), url("/view/8.png");
+}
+.item-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.item-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.item-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.item-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.item-img-content {
+  position: relative;
+}
+
+.item-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.sold-out {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  transform: skewY(-10deg);
+}
+
+.sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+
+.item-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.item-name {
+  font-size: 2.5vh;
+}
+
+.item-price {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.star-btn {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.star-count {
+  font-size: 2vh;
+}
+.list{
+  list-style: none;
+}
+/* //商品一覧 */
