@@ -10182,3 +10182,9 @@ input:focus{
   padding:1rem;
   background: linear-gradient(to bottom, rgba(255, 110, 7, 0.8) 0%, rgba(255, 134, 48, 0.8) 100%), url("/view/2.jpeg");
 }
+.mark-up{
+  background: linear-gradient(rgba(255, 110, 42, 0.952),rgb(243, 87, 15));
+  color:currentColor;
+  padding:1rem;
+  background: linear-gradient(to bottom, rgba(255, 110, 7, 0.8) 0%, rgba(255, 134, 48, 0.8) 100%), url("/view/8.png");
+}

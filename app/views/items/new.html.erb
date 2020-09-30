@@ -13,10 +13,12 @@
 
 
   <body>
-    <div class="items-sell-contents">
+  <div class="bg-dark items-liner">
+  </div>
+    <div class="items-sell-contents mark-up">
   <header class="items-sell-header">
   </header>
-  <div class="items-sell-main">
+  <div class="items-sell-main" >
     <h2 class="items-sell-title font-weight-bold h2">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
     
@@ -61,7 +63,7 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%# <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"select-box", id:"item-category"}) %> 
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -77,17 +79,17 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%# <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %> 
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <%# <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %> 
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%# <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %> 
       </div>
     </div>
     <%# /配送について %>
@@ -144,16 +146,16 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "出品する" ,class:"sell-btn " %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
-  </div>
+    </div>
   <% end %>
-
-  <footer class="items-sell-footer">
-  </footer>
 </div>
+<div class="bg-dark items-liner">
+</div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
