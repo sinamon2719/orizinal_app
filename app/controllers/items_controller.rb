@@ -40,15 +40,42 @@ class ItemsController < ApplicationController
     end
   end
 
+  def education
+    @items = Item.includes(:user).order('created_at DESC')
+    @item = Item.new(item_params)
+  end
+
+  def appliances
+
+  end
+
+  def fashion
+
+  end
+
+  def cosmetics
+
+  end
+
+  def food
+
+  end
+
+  def hobby
+
+  end 
+
   def show
     @items = Item.includes(:user).order('created_at DESC')
     @item = Item.new(item_params)
   end
 
+
+
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
+    params.permit(:image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
