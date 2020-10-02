@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
 
@@ -41,28 +41,27 @@ class ItemsController < ApplicationController
   end
 
   def education
-    @items = Item.includes(:user).order('created_at DESC')
-    @item = Item.new(item_params)
+    @items = Item.order('created_at DESC').where("category_id")
   end
 
   def appliances
-
+    @items = Item.order('created_at DESC').where("category_id")
   end
 
   def fashion
-
+    @items = Item.order('created_at DESC').where("category_id")
   end
 
   def cosmetics
-
+    @items = Item.order('created_at DESC').where("category_id")
   end
 
   def food
-
+    @items = Item.order('created_at DESC').where("category_id")
   end
 
   def hobby
-
+    @items = Item.order('created_at DESC').where("category_id")
   end 
 
   def show
@@ -75,7 +74,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item

@@ -52,7 +52,7 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center mark-orange">
+  <section class="jumbotron text-center mark-up">
     <div class="container">
       <!-- <h1 class="jumbotron-heading">Album example</h1> -->
       <h1 class="jumbotron-heading">教育 education</h1>
@@ -92,18 +92,18 @@
           </div>
           <div class="btn-group">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                  <% if user_signed_in? && current_user.id == @item.user_id %>
-                  <% unless @item.user_item%>
-                  <%= link_to(edit_item_path(@item.id), method: :get, class: "item-red-btn") do%>
+                  <% if user_signed_in? && current_user.id == item.user_id %>
+                  <% unless item.user_item%>
+                  <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
                   <% end %>
-                  <%= link_to(item_path(@item.id), method: :delete, class:'item-destroy') do%>
+                  <%= link_to(item_path(item.id), method: :delete, class:'item-destroy') do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
                   <% end %>
                   <%end%>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                   <%else%>
-                  <% unless @item.user_item%>
+                  <% unless item.user_item%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">購入</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">詳細</button>
                   <%end%>
