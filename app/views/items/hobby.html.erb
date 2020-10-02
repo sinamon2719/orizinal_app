@@ -70,10 +70,13 @@
 <ul class='item-lists'>
       <% @items.each do |item| %>
       
-    <li class='list col-md-4 mb-4 shadow-sm'>
+    <li class='list col-md-6 mb-6 shadow-sm'>
       <%= link_to item_path(item) do%>
+      <td>
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560"></iframe>
+      </td>
         <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" , size:'185x50'%> 
+           <%= image_tag item.image, class: "item-img" , size:'100x50'%> 
           <% if item.user_item%>
             <div class='sold-out'>
               <span>Sold Out!!</span> 

@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_025622) do
     t.integer "prefecture_id"
     t.integer "category_id"
     t.integer "user_id"
+    t.text "body"
+    t.string "youtube_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
