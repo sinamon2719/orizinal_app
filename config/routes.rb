@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-
   root to: 'items#index'
   resources :users
 
@@ -33,4 +32,8 @@ Rails.application.routes.draw do
       get 'hobby'
     end
   end
+  resources :items do
+    resources :orders, only: [:create, :index]
+  end
+
 end

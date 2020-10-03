@@ -21,7 +21,6 @@
   <div class="items-sell-main" >
     <h2 class="items-sell-title font-weight-bold h2">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
-    
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -39,6 +38,14 @@
     </div>
     <%# /出品画像 %>
     <%# 商品名と商品説明 %>
+    <div class="new-items">
+    <div class="weight-bold-text">
+    YOUTUBE 動画URL
+    <span class="indispensable">必須</span>
+      <%= f.text_field :youtube_url, placeholder: 'youtube_url' , class:"items-text"%>
+    </div>
+    </div>
+
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
