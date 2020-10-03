@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_category, only: [:education, :appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :direct_index, only: [:edit]
   
 
   def index
@@ -80,5 +81,9 @@ class ItemsController < ApplicationController
 
   def set_category
     @items = Item.order('created_at DESC').where("category_id")
+  end
+
+  def direct_index
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end

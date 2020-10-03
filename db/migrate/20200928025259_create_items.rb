@@ -9,8 +9,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :prefecture_id
       t.integer :category_id
       t.integer :user_id
-      t.text :body # 追加
-      t.string :youtube_url # 追加
+      t.text    :body # 追加
+      t.string  :youtube_url # 追加
       t.timestamps
     end
   end

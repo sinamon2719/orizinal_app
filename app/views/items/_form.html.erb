@@ -4,7 +4,7 @@
     <li class='list col-md-6 mb-6 shadow-sm'>
       <%= link_to item_path(item) do%>
       <td>
-        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560"></iframe>
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560" allowfullscreen ></iframe>
       </td>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" , size:'100x50'%> 
@@ -20,7 +20,7 @@
               <%= item.name %>
             </h3>
             <div class='item-price'>
-              <span><%= item.price %>円<br>(税込み)</span>
+              <span><%= item.price %>円<br>(税込み)</span>ˆ
               </div>
             </div>
           </div>

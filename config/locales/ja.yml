@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      item:
+        name: 商品名
+        content: 商品の説明
+        image: 画像
+        price: 価格
+        category_id: カテゴリー
+        shipping_cost_id: 配送料の負担
+        shipping_day_id: 発送までの日数
+        prefecture_id: 発送元の地域
+        judgment_id: 商品の状態
+  activemodel:
+    attributes:      
+      user_order:
+        post_code: 郵便番号
+        city: 番地
+        address: 市町村
+        phone_number: 電話番号
+        token: クレジット情報
+        prefecture_id: 都道府県
