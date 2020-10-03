@@ -35,7 +35,7 @@ class UserOrder
   with_options presence: true, format: { with: /\A[0-9]+\Z/, message: '半角数字を使用してください' } do
     validates :price
   end
-end
+
 
 
 #オーダーモデル

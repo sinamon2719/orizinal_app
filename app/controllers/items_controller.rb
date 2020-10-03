@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_category, only: [:education, :appliances, :fashion, :cosmetics, :food, :hobby]
-
+  before_action :set_item, only: [:edit, :update, :destroy]
+  
 
   def index
   end
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def education
-    
+  
   end
 
   def appliances
@@ -65,9 +65,6 @@ class ItemsController < ApplicationController
     
   end 
 
-  def show
-    
-  end
 
 
 

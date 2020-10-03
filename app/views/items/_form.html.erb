@@ -12,9 +12,9 @@
             <div class='sold-out'>
               <span>Sold Out!!</span> 
             </div>
-            <%end%> 
+          <%end%> 
           </div>
-          <% end %>
+      <% end %>
           <div class='item-info'>
             <h3 class='item-name'>
               <%= item.name %>
@@ -24,29 +24,35 @@
               </div>
             </div>
           </div>
-          <div class="btn-group">
+        <div class="btn-group">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                  <% if user_signed_in? && current_user.id == item.user_id %>
-                  <% unless item.user_item%>
+          <% if user_signed_in? && current_user.id == item.user_id %>
+            <% unless item.user_item%>
+                  
                   <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
                   <% end %>
+                  
                   <%= link_to(item_path(item.id), method: :delete, class:'item-destroy') do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
                   <% end %>
-                  <%end%>
+                  
+            <%end%>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                   <%else%>
-                  <% unless item.user_item%>
+                  
+            <% unless item.user_item%>
+
                   <%= link_to(item_orders_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">購入</button>
-                  <%end%>
+                  <% end %>
+
                   <%= link_to(item_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-sm btn-outline-secondary">詳細</button>
                   <% end %>
-                  <%end%>
-                  <%end%>
-          </div> 
+            <%end%>
+          <%end%>
+        </div> 
     </li>
-  <% end %>
+  <%end%>
 </ul>
