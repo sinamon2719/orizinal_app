@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
-  before_action :set_category, only: [:education, :appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :direct_index, only: [:edit]
   
 
   def index
@@ -41,28 +41,32 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   def education
-  
+    @items = Item.order('created_at DESC').where("category_id=2")
   end
 
   def appliances
-    
+    @items = Item.order('created_at DESC').where("category_id=3")
   end
 
   def fashion
-    
+    @items = Item.order('created_at DESC').where("category_id=4")
   end
 
   def cosmetics
-    
+    @items = Item.order('created_at DESC').where("category_id=5")
   end
 
   def food
-    
+    @items = Item.order('created_at DESC').where("category_id=6")
   end
 
   def hobby
-    
+    @items = Item.order('created_at DESC').where("category_id=7")
   end 
 
 
@@ -78,7 +82,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def set_category
-    @items = Item.order('created_at DESC').where("category_id")
+  def direct_index
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end
