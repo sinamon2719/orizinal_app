@@ -5,33 +5,38 @@
       <div class= 'item-contents'>
         <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560" allowfullscreen ></iframe>
       </div>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" , size:'100x50'%> 
+      <div class='item-img-content-main w-100 d-flex'>
+        <div class='item-img-content w-50'>
+        <div class="row">
+        <div class="col">
+          <%= image_tag item.image, class: "item-img mx-auto d-block" , size:'100x50'%> 
+          </div>
+          </div>
           <% if item.user_item%>
             <div class='sold-out'>
               <span>Sold Out!!</span> 
             </div>
           <%end%> 
           </div>
-          <div class='item-show-box'>
+          <div class='item-show-box w-50'>
           <div class='item-info'>
-            <h3 class='item-name'>
+            <h3 class='item-name w-100 h3 text-center'>
               <%= item.name %>
             </h3> 
-            <div class='item-price'>
-              <span><%= item.price %>円<br>(税込み)</span>ˆ
+            <div class='item-price w-100 h1'>
+              <span ><%= item.price %>円</span>
             </div>
-        <div class="btn-group">
+        <div class="btn-groupss">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
           <% if user_signed_in? && current_user.id == item.user_id %>
             <% unless item.user_item%>
                   
                   <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">編集</button>
                   <% end %>
-                  
+                  <br>
                   <%= link_to(item_path(item.id), method: :delete, class:'item-destroy') do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">削除</button>
                   <% end %>
                   
             <%end%>
@@ -39,14 +44,14 @@
                   <%else%>
                   
             <% unless item.user_item%>
-
                   <%= link_to(item_orders_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">購入</button>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">購入</button>
                   <% end %>
-
+                  <br>
                   <%= link_to(item_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細</button>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">詳細</button>
                   <% end %>
+                  </div>
             <%end%>
           <%end%>
         </div> 

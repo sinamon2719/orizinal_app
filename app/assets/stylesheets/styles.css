@@ -10291,26 +10291,21 @@ input:focus{
 
 .item-price {
   font-size: 1.5vh;
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.star-btn {
-  display: flex;
-  align-items: center;
-}
-
-.star-icon {
-  height: 2vh;
-  width: 2vh;
-  margin-right: 0.5vw;
-}
-
-.star-count {
-  font-size: 2vh;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 .list{
   list-style: none;
+}
+.item-show-box{
+  border: 2px solid;
+  border-color: #f4623a;
+  border-radius: 8px;
+}
+.btn-groupss{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 /* //商品一覧 */
