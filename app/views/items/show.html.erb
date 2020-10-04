@@ -1,1 +1,53 @@
-<h2 class="items-sell-title font-weight-bold h2">商品の情報を入力</h2>
+
+<section class="container">
+<div class="row">
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+<%= image_tag @item.image ,size: '1000x650'%>
+    <div class="col-md-12 px-0">
+      <p class="display-4 font-italic"><%= @item.name %></p>
+      <p class="lead my-3"><%= @item.price%><span class="item-postage">(税込) 送料込み</span></a></p>
+      <%= @item.content%>
+      <p class="lead mb-0 text-right btn-dange">
+      <%= link_to (item_orders_path(@item.id)) do %>
+      <button type="button" class="btn-danger btn-primary btn-lg">購入画面に進む</button>
+      <%end%>
+      </p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary h3">出品者</strong>
+          <h3 class="mb-0 h4"><%= @item.name %></h3>
+          <p class="card-text mb-auto">利用規約・プライバシーポリシーを確認して取引して下さい</p>
+          <a href="#" class="stretched-link h5">カテゴリー   <%= @item.category.name %></a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><rect width="100%" height="100%" fill="#55595c"/>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success h3">配送料の負担</strong>
+          <h3 class="mb-0 h4"><%= @item.shipping_cost.name %></h3>
+          <br>
+          <div class="mb-1 text-muted">発送元の地域</div>
+          <p class="mb-auto"><%= @item.prefecture.name %></p>
+          <a href="#" class="stretched-link">発送日の目安</a>
+          <%= @item.shipping_day.name %>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+          <rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy, :show]
   before_action :direct_index, only: [:edit]
   
 
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.order('created_at DESC').where("category_id=2")
+
   end
 
   def education
