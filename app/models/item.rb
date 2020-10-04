@@ -12,6 +12,7 @@ class Item < ApplicationRecord
     validates :shipping_day_id
     validates :prefecture_id
     validates :category_id
+    validates :image
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
