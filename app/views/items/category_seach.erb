@@ -1,13 +1,20 @@
 <h1>
   商品検索
 </h1>
-<%= search_form_for @p, url: items_search_path do |f| %>
+<%= search_form_for @q, url: items_search_path do |f| %>
   <%= f.label :name_eq, '商品名' %>
-  <%= f.collection_select :name_eq, @item_name, :name, :name, include_blank: '指定なし' %>
+  <%= f.collection_select :name_eq, @items, :name, :name, include_blank: '指定なし' %>
   <br>
-  <%= f.label :category_name_eq, 'カテゴリー：' %>
-  <%= f.collection_select :category_name_eq, @category_name, :name, :name, include_blank: '指定なし' %>
+  <%= f.label :category_id_eq, 'カテゴリー：' %>
+  <%= f.collection_select :category_id_eq,  @item_category_name, :id, :category_id, include_blank: '指定なし' %>
   <br>
+  <%= f.label :category_id_eq, '配送料：' %>
+  <%= f.collection_select :category_id_eq,  @item_shipping_cost_name, :id, :shipping_cost_id, include_blank: '指定なし' %>
+  <br>
+  <%= f.label :category_id_eq, 'お届け日数：' %>
+  <%= f.collection_select :category_id_eq,  @item_shipping_day_name, :id, :shipping_day_id, include_blank: '指定なし' %>
+  <br>
+
   <%= f.label :price, '価格：' %>
   <%= f.radio_button :price_lteq, '' %>
   指定なし
@@ -19,11 +26,10 @@
   5000円以下
   <br>
   <%= f.submit '検索' %>
+  <% end %>
   <br>
   <%# 商品一覧 %>
   <% @items.each do |item| %>
-  <td>
-  <br>
   <li>
     <%= item.name %>
     <%= item.shipping_cost.name %>
@@ -32,4 +38,3 @@
     <%= item.category.name %>
   </li>
   <% end %>
-<% end %>

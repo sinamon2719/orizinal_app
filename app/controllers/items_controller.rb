@@ -46,15 +46,20 @@ class ItemsController < ApplicationController
 
   end
 
+
+
   def search
-    @results = @p.result.includes(:category)
+    @q = Item.ransack(params[:q])
+    @results = @q.result
   end
 
   def category_seach
-    @items = Item.order('created_at DESC').where("category_id")
+    @q = Item.ransack(params[:q])
     @items = Item.all
     set_item_column
   end
+
+
 
   def category_all
     @items = Item.order('created_at DESC').where("category_id")
@@ -107,7 +112,9 @@ class ItemsController < ApplicationController
 
   def set_item_column
     @item_name = Item.select("name").distinct
-    @item_category_name = Item.select("name").distinct
+    @item_category_name = Category.select("category_id").distinct
+    @item_shipping_cost_name = ShippingCost.select("shipping_cost_id").distinct
+    @item_shipping_day_name = ShippingDay.select("shipping_day_id").distinct
   end
 
 end
