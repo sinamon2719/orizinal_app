@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
 
   end
 
+  def category_all
+    @items = Item.order('created_at DESC').where("category_id")
+  end
+
+
   def education
     @items = Item.order('created_at DESC').where("category_id=2")
   end

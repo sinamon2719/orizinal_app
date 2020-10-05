@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
+      get 'category_all'
+    end
+    collection do
       get 'education'
     end
     collection do
