@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
   before_action :direct_index, only: [:edit]
+  before_action :search_item, only: [:category_seach, :search]
   
 
   def index
@@ -45,10 +46,19 @@ class ItemsController < ApplicationController
 
   end
 
+  def search
+    @results = @p.result.includes(:category)
+  end
+
+  def category_seach
+    @items = Item.order('created_at DESC').where("category_id")
+    @items = Item.all
+    set_item_column
+  end
+
   def category_all
     @items = Item.order('created_at DESC').where("category_id")
   end
-
 
   def education
     @items = Item.order('created_at DESC').where("category_id=2")
@@ -90,4 +100,14 @@ class ItemsController < ApplicationController
   def direct_index
     redirect_to root_path unless current_user.id == @item.user_id
   end
+
+  def search_item
+    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def set_item_column
+    @item_name = Item.select("name").distinct
+    @item_category_name = Item.select("name").distinct
+  end
+
 end

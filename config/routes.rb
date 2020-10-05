@@ -11,9 +11,13 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
+  get 'items/search'
   resources :users
 
   resources :items do
+    collection do
+      get 'category_seach'
+    end
     collection do
       get 'category_all'
     end

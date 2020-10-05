@@ -90,9 +90,9 @@
                     </div>
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                            <%= link_to (category_seach_items_path) do %>
                             <h3 class="h4 mb-2">動画検索</h3>
-                            
+                            <%end%>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 text-center">
@@ -100,7 +100,6 @@
                             <%= link_to (category_all_items_path) do %>
                             <h3 class="h4 mb-2">動画一覧</h3>
                             <%end%>
-                            </a>
                         </div>
                     </div>
                 </div>
