@@ -58,10 +58,17 @@
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
       </strong>
+    <%= form.text_area :text, placeholder: "コメントする",  size: "130x3"%>
+    <%= form.submit "SEND"%>
     <% end %>
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
+  <% else %>
+    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+  </div>
+
+  <div class="comments">
+    <div class="comments-list text-center h6">コメント一覧</div>
+    <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
@@ -71,4 +78,4 @@
       <% end %>
     </div>
 
-</section>
+  

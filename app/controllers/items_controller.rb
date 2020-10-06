@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:text, :body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:text,:body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
@@ -113,9 +113,9 @@ class ItemsController < ApplicationController
 
   def set_item_column
     @item_name = Item.select("name").distinct
-    # @item_category_name = Category.select("category_id").distinct
-    # @item_shipping_cost_name = ShippingCost.select("shipping_cost_id").distinct
-    # @item_shipping_day_name = ShippingDay.select("shipping_day_id").distinct
+    # @item_category_name = Item.select("category_id").distinct
+    # @item_shipping_cost_name = Item.select("shipping_cost_id").distinct
+    # @item_shipping_day_name = Item.select("shipping_day_id").distinct
   end
 
 end
