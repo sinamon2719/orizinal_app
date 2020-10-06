@@ -1,15 +1,15 @@
 <ul class='item-lists'>
       <% @items.each do |item| %>
       
-    <li class='list col-md-6 mb-6 shadow-sm'>
+    <li class='list col-md-3 mb-3 shadow-sm'>
       <div class= 'item-contents'>
-        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560" allowfullscreen ></iframe>
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  allowfullscreen ></iframe>
       </div>
-      <div class='item-img-content-main w-100 d-flex'>
-        <div class='item-img-content w-50'>
+      <div class='item-img-contents-main w-100 d-flex'>
+        <div class='item-img-contents w-50'>
         <div class="row">
         <div class="col">
-          <%= image_tag item.image, class: "item-img mx-auto d-block" , size:'100x50'%> 
+          <%= image_tag item.image, class: "item-imgs "%> 
           </div>
           </div>
           <% if item.user_item%>
@@ -20,10 +20,10 @@
           </div>
           <div class='item-show-box w-50'>
           <div class='item-info'>
-            <h3 class='item-name w-100 h3 text-center'>
+            <h3 class='item-name w-100 h6 text-center'>
               <%= item.name %>
             </h3> 
-            <div class='item-price w-100 h1'>
+            <div class='item-price w-100 h6'>
               <span ><%= item.price %>円</span>
             </div>
         <div class="btn-groupss">

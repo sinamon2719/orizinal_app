@@ -10230,7 +10230,7 @@ input:focus{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 3vh 0;
 }
 
 .item-contents>.title {
@@ -10281,7 +10281,7 @@ input:focus{
 
 .sold-out>span {
   color: #FFF;
-  font-size: 45px;
+  font-size: 20px;
   font: bold;
 }
 
@@ -10306,8 +10306,6 @@ input:focus{
   list-style: none;
 }
 .item-show-box{
-  border: 2px solid;
-  border-color: #f4623a;
   border-radius: 8px;
 }
 .btn-groupss{
