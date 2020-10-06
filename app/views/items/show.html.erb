@@ -49,17 +49,15 @@
     </div>
   </div>
 </div>
-<div class="container">
-    <% if current_user %>
-      <%= form_with(model: [@item, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-      </strong>
+
+<div class="form-group">
+  <div class="comments-list text-center h6">良識のあるコメントを心がけコミュニティガイドラインに準拠するようにして下さい。</div>
+  <% if current_user %>
+    <%= form_with(model: [@item, @comment], local: true) do |form| %>
+    <div class="form-list d-flex btn-primary">
     <%= form.text_area :text, placeholder: "コメントする",  size: "130x3"%>
     <%= form.submit "SEND"%>
+    </div>
     <% end %>
   <% else %>
     <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
