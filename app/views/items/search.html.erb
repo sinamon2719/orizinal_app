@@ -4,13 +4,11 @@
 <%# 検索結果の個数で条件分岐 %>
 <% if @results.any? %>
   <% @results.each do |result| %>
-    <li>
       <%= result.name %>
       <%= result.shipping_cost.name %>
       <%= result.shipping_day.name %>
       <%= result.price %>
       <%= result.category.name %>
-    </li>
   <% end %>
 <% else %>
   該当する商品はありません 

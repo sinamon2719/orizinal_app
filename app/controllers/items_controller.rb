@@ -60,8 +60,6 @@ class ItemsController < ApplicationController
     set_item_column
   end
 
-
-
   def category_all
     @items = Item.order('created_at DESC').where("category_id")
   end
@@ -98,7 +96,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:text,:body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
-
   def set_item
     @item = Item.find(params[:id])
   end
@@ -113,9 +110,6 @@ class ItemsController < ApplicationController
 
   def set_item_column
     @item_name = Item.select("name").distinct
-    # @item_category_name = Item.select("category_id").distinct
-    # @item_shipping_cost_name = Item.select("shipping_cost_id").distinct
-    # @item_shipping_day_name = Item.select("shipping_day_id").distinct
   end
 
 end
