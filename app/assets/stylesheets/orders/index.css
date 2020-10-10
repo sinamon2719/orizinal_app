@@ -7,9 +7,9 @@
 
 .transaction-main {
   background-color: #FFF;
-  width: 70vw;
+  width: 55vw;
   min-width: 450px;
-  padding: 10vh 10vw;
+  padding: 10vh;
 }
 
 .transaction-title-text {

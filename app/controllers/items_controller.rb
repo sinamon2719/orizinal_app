@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   def update
     if @item.user_id == current_user.id
       if @item.update(item_params)
-        redirect_to item_path(@item.id)
+        redirect_to root_path
       else
         redirect_to action: :edit
       end
