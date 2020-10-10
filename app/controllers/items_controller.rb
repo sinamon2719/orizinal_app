@@ -47,7 +47,9 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
   end
 
-
+  def recommend
+    @items = Item.all.sort{|a,b| b.liked_users.count <=> a.liked_users.count}
+  end
 
   def search
     @q = Item.ransack(params[:q])

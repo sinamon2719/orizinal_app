@@ -53,6 +53,12 @@
                   <% end %>
                   </div>
             <%end%>
+            <div class="main_contents">
+                    <div class=" text-center likes_buttons_<%= item.id %>">
+                    <br>
+                      <%= render partial: 'likes/like', locals: { item: item} %>
+                  </div>
+                  </div>
           <%end%>
         </div> 
         </div>

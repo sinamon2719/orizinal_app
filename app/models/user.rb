@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :sns_credentials
   has_many :likes, dependent: :destroy
+  has_many :liked_items, through: :likes, source: :item
 
   validates :nickname, presence: true
   validates :email, presence: true

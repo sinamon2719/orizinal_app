@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
+      get 'recommend'
+    end
+    collection do
       get 'category_seach'
     end
     collection do
