@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root to: 'items#index'
   get 'items/search'
   resources :users
+  post '/items/:item_id/likes' => "likes#create"
+  delete '/items/:item_id/likes' => "likes#destroy"
 
   resources :items do
     collection do
@@ -47,6 +49,6 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :items do
-    resources :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 end

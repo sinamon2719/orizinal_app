@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   with_options presence: true do
     validates :name
@@ -29,4 +29,7 @@ class Item < ApplicationRecord
 
   validates :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, numericality: { other_than: 1 }
   
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end

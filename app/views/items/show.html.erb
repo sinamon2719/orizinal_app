@@ -98,7 +98,12 @@
           </div>
         </div>
       </div>
-      
+      <div class="main_contents">
+      <div id="likes_buttons_<%= @item.id %>">
+        <%= render partial: 'likes/like', locals: { item: @item} %>
+      </div>
+	</div>
+</div>
 
 
 </section>
