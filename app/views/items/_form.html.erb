@@ -12,7 +12,7 @@
           <%= image_tag item.image, class: "item-imgs "%> 
           </div>
           </div>
-          <% if item.user_item%>
+          <% if item.rest_quantity == 0%>
             <div class='sold-out'>
               <span>Sold Out!!</span> 
             </div>
@@ -29,7 +29,7 @@
         <div class="btn-groupss">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
           <% if user_signed_in? && current_user.id == item.user_id %>
-            <% unless item.user_item%>
+            <% unless item.user_item && item.rest_quantity == 0 %>
                   
                   <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-lg btn-block btn-outline-secondary">編集</button>
@@ -42,8 +42,7 @@
             <%end%>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                   <%else%>
-                  
-            <% unless item.user_item%>
+            <% unless item.user_item && item.rest_quantity == 0 %>
                   <%= link_to(item_orders_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-lg btn-block btn-danger">購入</button>
                   <% end %>
@@ -53,13 +52,15 @@
                   <% end %>
                   </div>
             <%end%>
-            <div class="main_contents">
-                    <div class=" text-center likes_buttons_<%= item.id %>">
-                    <br>
+          <%end%>
+          <div class="main_contents">
+                    <div class="text-center" id="likes_buttons_<%= item.id %>">
                       <%= render partial: 'likes/like', locals: { item: item} %>
                   </div>
                   </div>
-          <%end%>
+                  <div class='h6 text-center'>
+              <span>残り<%=item.rest_quantity%>個</span>
+            </div> 
         </div> 
         </div>
       </div>

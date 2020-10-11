@@ -35,8 +35,10 @@
             <br>
             <br>
             <div class= "font-weight-bold h6">YOUTUBE 動画URL</div>
+            <h6>（他人の動画をアップロードするのは著作権違反です）</h6>
             <%= f.text_field :youtube_url, placeholder: 'youtube_url' , class:"items-text"%>
           </div>
+          <br>
           <br>
           <div class= "font-weight-bold h6">商品名</div>
 	          <div class="form-row">
@@ -45,9 +47,15 @@
 	            </div>
 	          </div>
 
-            <div class= "font-weight-bold h6">商品内容</div>
+              <div class= "font-weight-bold h6">商品内容</div>
 	            <div class="form-row">
                <%= f.text_area :content, size: "40x5", placeholder:"商品内容 例)今！話題のyoutubeで人気のラーメンです"%>
+              </div>
+              <br>
+
+            <div class= "font-weight-bold h6">数量</div>
+	            <div class="form-row">
+               <%= f.number_field :quantity%>
               </div>
               <br>
           <div class= "font-weight-bold h6">カテゴリー </div>

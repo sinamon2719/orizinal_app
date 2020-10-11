@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item = Item.new(item_params)
+    @item.assign_attributes(rest_quantity: item_params[:quantity])
     if @item.valid?
       @item.save
       redirect_to root_path
@@ -48,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def recommend
-    @items = Item.all.sort{|a,b| b.liked_users.count <=> a.liked_users.count}
+    @items = Item.includes(:user_item).where.not(rest_quantity: 0).sort{|a,b| b.liked_users.count <=> a.liked_users.count}
   end
 
   def search
@@ -96,7 +98,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:text,:body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:quantity,:text,:body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])

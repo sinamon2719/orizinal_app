@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   root to: 'items#index'
   get 'items/search'
   resources :users
-  post '/items/:item_id/likes' => "likes#create"
-  delete '/items/:item_id/likes' => "likes#destroy"
+  # post '/items/:item_id/likes' => "likes#create"
+  # delete '/items/:item_id/likes' => "likes#destroy"
 
   resources :items do
     collection do

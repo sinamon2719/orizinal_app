@@ -20,6 +20,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def edit
+  end
+
+  def update
+    if current_user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:nickname, :encrypted_password )
+  end
+end
+
+
   # GET /resource/edit
   # def edit
   #   super
@@ -51,7 +70,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
-  # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
@@ -65,21 +83,3 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-  def edit
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:nickname, :encrypted_password )
-  end
-end

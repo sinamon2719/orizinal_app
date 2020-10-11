@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="navbar-brand js-scroll-trigger" >
                 <% if user_signed_in? %>
-                <%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname"  %>
+                <%= link_to current_user.nickname,class: "user-nickname"  %>
                 </div>
                 <div class="navbar-brand js-scroll-trigger" >
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> 
@@ -226,7 +226,7 @@
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">誰でも簡単！今すぐ無料ダウンロード！</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
+                <a class="btn btn-light btn-xl" href="#">Download Now!</a>
             </div>
         </section>
         <!-- Contact-->
@@ -247,7 +247,7 @@
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                        <a class="d-block" href="portfolio@yahoo.co.jp">portfolio@yahoo.co.jp</a>
                     </div>
                 </div>
             </div>

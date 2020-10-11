@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save # バリデーションをクリアした時
+
+      rest_quantity = @item.rest_quantity - 1
+      @item.update(rest_quantity: rest_quantity)
+      
       redirect_to root_path
     else
       render 'index'
