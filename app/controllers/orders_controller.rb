@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save # バリデーションをクリアした時
+
+      rest_quantity = @item.rest_quantity - 1
+      @item.update(rest_quantity: rest_quantity)
+      
       redirect_to root_path
     else
       render 'index'
@@ -22,7 +26,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:token, :post_code, :prefecture_id, :city, :address, :building_name, :phone_number, :item_id).merge(user_id: current_user.id)
+    params.permit(:token, :image, :post_code, :prefecture_id, :city, :address, :building_name, :phone_number, :item_id).merge(user_id: current_user.id)
   end
 
   def pay_item

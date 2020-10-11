@@ -1,0 +1,38 @@
+.price-content {
+  width: 300px;
+  border-bottom: 2px solid rgb(27, 27, 27);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-text {
+  /* min-width: 170px; */
+  display: flex;
+  align-items: center;
+}
+
+.sell-yen {
+  font-size: 18px;
+}
+
+.price-input {
+  height: 30px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.item-rows{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.container-fluid{
+  display: flex;
+  align-items:flex-end; 
+  flex-direction:column;
+}
+.container-fluids{
+  display: flex;
+}

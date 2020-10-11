@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'  
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   devise_scope :user do
@@ -10,9 +11,21 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
+  get 'items/search'
   resources :users
+  # post '/items/:item_id/likes' => "likes#create"
+  # delete '/items/:item_id/likes' => "likes#destroy"
 
   resources :items do
+    collection do
+      get 'recommend'
+    end
+    collection do
+      get 'category_seach'
+    end
+    collection do
+      get 'category_all'
+    end
     collection do
       get 'education'
     end
@@ -35,5 +48,10 @@ Rails.application.routes.draw do
   resources :items do
     resources :orders, only: [:create, :index]
   end
-
+  resources :items do
+    resources :comments, only: :create
+  end
+  resources :items do
+    resource :likes, only: [:create, :destroy]
+  end
 end

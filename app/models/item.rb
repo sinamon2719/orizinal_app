@@ -4,7 +4,10 @@ class Item < ApplicationRecord
   has_one :user_item
   belongs_to :user
   has_one_attached :image
-
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
+  
   with_options presence: true do
     validates :name
     validates :content
@@ -12,6 +15,7 @@ class Item < ApplicationRecord
     validates :shipping_day_id
     validates :prefecture_id
     validates :category_id
+    validates :image
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
@@ -26,4 +30,7 @@ class Item < ApplicationRecord
 
   validates :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, numericality: { other_than: 1 }
   
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end

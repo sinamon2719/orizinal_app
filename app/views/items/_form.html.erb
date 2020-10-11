@@ -1,54 +1,66 @@
 <ul class='item-lists'>
       <% @items.each do |item| %>
       
-    <li class='list col-md-6 mb-6 shadow-sm'>
+    <li class='list col-md-3 mb-3 shadow-sm'>
       <div class= 'item-contents'>
-        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  width="560" allowfullscreen ></iframe>
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  allowfullscreen ></iframe>
       </div>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" , size:'100x50'%> 
-          <% if item.user_item%>
+      <div class='item-img-contents-main w-100 d-flex'>
+        <div class='item-img-contents w-50'>
+        <div class="row">
+        <div class="col">
+          <%= image_tag item.image, class: "item-imgs "%> 
+          </div>
+          </div>
+          <% if item.rest_quantity == 0%>
             <div class='sold-out'>
               <span>Sold Out!!</span> 
             </div>
           <%end%> 
           </div>
-          <div class='item-show-box'>
+          <div class='item-show-box w-50'>
           <div class='item-info'>
-            <h3 class='item-name'>
+            <h3 class='item-name w-100 h6 text-center'>
               <%= item.name %>
             </h3> 
-            <div class='item-price'>
-              <span><%= item.price %>円<br>(税込み)</span>ˆ
+            <div class='item-price w-100 h6'>
+              <span ><%= item.price %>円</span>
             </div>
-        <div class="btn-group">
+        <div class="btn-groupss">
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
           <% if user_signed_in? && current_user.id == item.user_id %>
-            <% unless item.user_item%>
+            <% unless item.user_item && item.rest_quantity == 0 %>
                   
                   <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">編集</button>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">編集</button>
                   <% end %>
-                  
+                  <br>
                   <%= link_to(item_path(item.id), method: :delete, class:'item-destroy') do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除</button>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">削除</button>
                   <% end %>
                   
             <%end%>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                   <%else%>
-                  
-            <% unless item.user_item%>
-
+            <% unless item.user_item && item.rest_quantity == 0 %>
                   <%= link_to(item_orders_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">購入</button>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">購入</button>
                   <% end %>
-
+                  <br>
                   <%= link_to(item_path(item.id), method: :get, class: "item-red-btn") do%>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細</button>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">詳細</button>
                   <% end %>
+                  </div>
             <%end%>
           <%end%>
+          <div class="main_contents">
+                    <div class="text-center" id="likes_buttons_<%= item.id %>">
+                      <%= render partial: 'likes/like', locals: { item: item} %>
+                  </div>
+                  </div>
+                  <div class='h6 text-center'>
+              <span>残り<%=item.rest_quantity%>個</span>
+            </div> 
         </div> 
         </div>
       </div>

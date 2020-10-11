@@ -1,166 +1,114 @@
-<!doctype html>
 <html lang="ja">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Sample</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </head>
 
-
+  <%= render 'category_heder', item: @item %>
   <body>
-  <div class="bg-dark items-liner">
-  </div>
-    <div class="items-sell-contents mark-up">
-  <header class="items-sell-header">
-  </header>
-  <div class="items-sell-main" >
-    <h2 class="items-sell-title font-weight-bold h2">商品の情報を入力</h2>
-    <%= form_with model: @item, local: true do |f| %>
-    
-    <%# 出品画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        出品画像
-        <span class="indispensable">必須</span>
-        <div id="image-list" ></div> 
-        <div id="image-list"></div> 
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
+  <br/><br/>
+<div class="container-fluids">
+    <div class="container-fluid">
+    <%=image_tag "portfolio/fullsize/22.png", class:"img-fluid mb-5 mt-5", :size =>'1020x780'%>
+    <br>
+    <%=image_tag "portfolio/fullsize/20.png", class:"img-fluid mb-5 mt-5", :size =>'1020x780'%>
     </div>
-    <%# /出品画像 %>
-    <%# 商品名と商品説明 %>
-    <div class="new-items">
-      <div class="weight-bold-text">
-        商品名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          商品の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :content, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2020年 YOUTUBEで話題のインスタントラーメンです" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <%# /商品名と商品説明 %>
 
-    <%# 商品の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"select-box", id:"item-category"})%>
-      </div>
-    </div>
-    <%# /商品の詳細 %>
+    <div class="container-fluid">
+      <div id="contens-row">
+      <%= render 'layouts/error_messages', model: @item %> 
+        <%= form_with model: @item, local: true do |f| %>
+        <h2 class= "font-weight-bold h2 mx-xl-6 my-xl-5">商品の情報を編集</h2>
+          <br>
+          <br>
+        <div id="contens-row"> 
+          <div class="image-lists mx-xl-6"> 
+            <div class="click-upload">
+            <div class= "font-weight-bold h6">クリックして画像をアップロード</div>
+            <%= f.file_field :image, id:"item-image" %>
+            <br>
+            <br>
+            <div class= "font-weight-bold h6">YOUTUBE 動画URL</div>
+            <%= f.text_field :youtube_url, placeholder: 'youtube_url' , class:"items-text"%>
+          </div>
+          <br>
+          <div class= "font-weight-bold h6">商品名</div>
+	          <div class="form-row">
+	            <div class="col-md-4 mb-3">
+	              <%= f.text_area :name, placeholder:"商品名", maxlength:"40" %>
+	            </div>
+	          </div>
 
-    <%# 配送について %>
-    <div class="items-detail">
-      <div class="weight-bold-text question-text">
-        <span>配送について</span>
-        <a class="question" href="#">?</a>
-      </div>
-      <div class="form">
-        <div class="weight-bold-text">
-          配送料の負担
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"})%>
-        <div class="weight-bold-text">
-          発送元の地域
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="weight-bold-text">
-          発送までの日数
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
-      </div>
-    </div>
-    <%# /配送について %>
+            <div class= "font-weight-bold h6">商品内容</div>
+	            <div class="form-row">
+               <%= f.text_area :content, size: "40x5", placeholder:"商品内容 例)今！話題のyoutubeで人気のラーメンです"%>
+              </div>
+              <br>
+          <div class= "font-weight-bold h6">カテゴリー </div>
+            <div class="form-row">
+		          <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"mx-3"})%>
+	          </div>
+            <br>
 
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
-      </div>
-      <div>
+	       <div class= "font-weight-bold h6">配送料の負担</div>
+            <div class="form-row">
+	          <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {},{class:"mx-3"},)%>
+	          </div>
+            <br>
+
+	      <div class= "font-weight-bold h6">発送元地域  </div>
+          <div class="form-row">
+	          <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"mx-3"}) %>
+	        </div>
+          <br>
+
+	      <div class= "font-weight-bold h6">発送までの日数  </div>
+          <div class="form-row">
+	           <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"mx-3"}) %>
+	      </div>
+          <br>
+
         <div class="price-content">
           <div class="price-text">
             <span>価格</span>
-            <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
+
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
             <span id='add-tax-price'></span>円
           </span>
         </div>
+        
         <div class="price-content">
           <span>販売利益</span>
-          <span>
             <span id='profit'></span>円
         </div>
-        </span>
-      </div>
+        <br>
+        <button class="btn btn-primary mx-3 mb-5" type="submit">編集完了</button>
+        <a href="/items">
+        <button class="btn btn-dark mx-3 mb-5" type="button">戻る</button>
+        </a>
     </div>
-    <%# /販売価格 %>
-
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
-    <%# /下部ボタン %>
-    </div>
-  <% end %>
+   <% end %>
+  </div>
 </div>
-<div class="bg-dark items-liner">
 </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+<!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>

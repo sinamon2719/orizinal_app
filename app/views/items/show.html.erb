@@ -1,1 +1,117 @@
-<h2 class="items-sell-title font-weight-bold h2">商品の情報を入力</h2>
+<%= render 'category_heder', item: @item %>
+<section class="container mt-5">
+  <div class="row d-flex">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <%= image_tag @item.image ,size: '400x250'%>
+    <div class="col-md-12 px-0">
+      <p class="display-4 font-italic">
+        <%= @item.name %>
+      </p>
+      <p class="lead my-3">
+        <%= @item.price%>
+          <span class="item-postage">
+            (税込) 送料込み
+          </span>
+      </p>
+
+      <p class="lead mb-0 text-right btn-dange">
+          <%= link_to (item_orders_path(@item.id)) do %>
+          <button type="button" class="btn-danger btn-primary btn-lg">購入画面に進む</button>
+        <%end%>
+
+          <%=link_to () do  %>
+          <button type="button" class="btn-primary btn-primary btn-lg">戻る</button>
+        <%end%>
+      </p>
+    </div>
+  </div>
+<div class="section-row ml-4  mt-2">
+  <div class="row flex-column "style="width: 600px;" >
+    <div class="col">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary h5 ">出品者</strong>
+            <h3 class="mb-0 h4"><%= @item.name %></h3>
+              <a href="#" class="stretched-link h5">カテゴリー   <%= @item.category.name %></a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <%= image_tag "portfolio/fullsize/7.png" ,size: '100x100'%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block text-success h5">配送料の負担</strong>
+          <h3 class="mb-0 h5"><%= @item.shipping_cost.name %></h3>
+          <br>
+          <div class="mb-1 text-muted">発送元の地域</div>
+          <p class="mb-auto"><%= @item.prefecture.name %></p>
+          <a href="#" class="stretched-link">発送日の目安</a>
+          <%= @item.shipping_day.name %>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <%= image_tag "portfolio/fullsize/8.jpeg" ,size: '100x100'%>
+        </div>
+      </div>
+    </div>
+    <div class="section-row ml-4">
+      <div class="row flex-column">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm  position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block text-primary h5">購入情報</strong>
+            <%= @item.content%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+    <div class="comments-list text-center h6">良識のあるコメントを心がけコミュニティガイドラインに準拠するようにして下さい。</>
+      <% if current_user %>
+        <%= form_with(model: [@item, @comment], local: true) do |form| %>
+          <div class="form-list d-flex btn-primary">
+            <%= form.text_area :text, placeholder: "コメントする",  size: "130x3"%>
+            <%= form.submit "SEND"%>
+          </div>
+        <% end %>
+
+        <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <% end %>
+    </div>
+
+      <div class="form-group mb-5" style="height:150px;overflow:auto;border:3px solid #aaa;padding:10px;">
+        <div class="comments">
+          <div class="comments-list text-center h6">コメント/質問</div>
+              <% if @comments %>
+              <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.text %>
+              </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+</section>
+<script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
+<script src="/docs/4.5/assets/js/src/application.js"></script>
+<script src="/docs/4.5/assets/js/src/search.js"></script>
+<script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
+  </body>
+</html>

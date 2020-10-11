@@ -1,0 +1,48 @@
+      <div class="page-sections bg-primary mastheads flex-column ">
+      <h1 class="mx-auto text-center font-weight-bold text-white" style="width: 800px;">MOVIE SEARCH SCREEN
+      <br>
+      <h1 class="text-white font-weight-bold text-center">CHECK THE KEYWORDS YOU CARE ABOUT</h1>
+      <%=link_to 'TOPへ戻る', root_path, class:"btn btn-primary mx-auto" %>
+      </h1>
+      </div>
+      
+      
+      <div class="search-contents d-flex align-items-center">
+          <div class="containers">
+          <div class="page-sectionss bg-primary">
+      </div>
+          
+          <%= search_form_for @q, url: items_search_path do |f| %>
+          <br>
+          <div class="font-weight-bold h1 text-center ">動画検索機能</div>
+          <br>
+          <br>
+          <br>
+          <div class="font-weight-bold h5 mx-5">
+              <%= f.label :name_cont, "商品名" %>
+              <%= f.text_field :name_cont %>
+          </div>
+          <br>
+          <div class="font-weight-bold h5 mx-5">
+              <%= f.label :category_id_eq, 'カテゴリー：' %>
+              <%= f.select :category_id_eq, [["教育", 2], ["家電", 3], ["ファッション", 4], ["コスメ", 5],["グルメ", 6], ["ホビー", 7]], include_blank: "選択して下さい" %>
+          </div>
+          <br>
+          <div class="font-weight-bold h5 mx-5">
+            <%= f.label :shipping_day_id_eq, 'お届け日数：' %> 
+            <%= f.select :shipping_day_id_eq,[["1~2日で発送", 2], ["2~3日で発送", 3],["4~7日で発送",4]] , include_blank: '指定なし' %>
+          </div>
+          <br>
+          <div class="font-weight-bold h6 mx-5">
+            <%= f.label :price %>
+            <%= f.number_field :price_gteq %>以上 ~
+            <%= f.number_field :price_lteq %>以下
+          </div>
+          <br>
+          <%= f.submit class: 'btn btn-primarys mx-5' %>
+    <% end %>
+    <br>    
+          <div class="page-sectionsss bg-primary">
+          </div>
+    </div>
+</div>

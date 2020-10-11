@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja" >
+  <head>
+    <title>アルバムサンプル for Bootstrap · Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="album.css" rel="stylesheet">
+    <link href="../example.css" rel="stylesheet">
+  </head>
+  <body >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+  <div class="container">
+    <span class="skiplink-text">Skip to main content</span>
+  </div>
+</a>
+
+<%= render 'category_heder', item: @item %>
+
+<main role="main">
+  <section class="jumbotron text-center mark-appliances">
+    <div class="container">
+      <!-- <h1 class="jumbotron-heading">Album example</h1> -->
+      <h1 class="jumbotron-heading">検索結果</h1>
+      <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p> -->
+      <br>
+        <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+        <a href="/items/category_seach" class="btn btn-primary my-2">検索画面へ</a>
+        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+        <%=link_to 'TOPへ戻る', root_path, class:"btn btn-secondary my-2" %>
+      </p>
+    </div>
+  </section>
+</main>
+
+
+<% if @results.any? %>
+<ul class='item-lists'>
+  <% @results.each do |result|  %>
+    <li class='list col-md-3 mb-3 shadow-sm'>
+      <div class= 'item-contents'>
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%=result.youtube_url.last(11)%>"  allowfullscreen ></iframe>
+      </div>
+      <div class='item-img-contents-main w-100 d-flex'>
+        <div class='item-img-contents w-50'>
+        <div class="row">
+        <div class="col">
+          <%= image_tag result.image, class: "item-imgs "%> 
+          <% if result.user_item%>
+            <div class='sold-out'>
+              <span>Sold Out!!</span> 
+            </div>
+          <%end%> 
+          </div>
+          </div>
+          </div>
+          <div class='item-show-box w-50'>
+          <div class='item-info'>
+            <h3 class='item-name w-100 h6 text-center'>
+              <%= result.name %>
+            </h3> 
+            <div class='item-price w-100 h6'>
+              <span ><%= result.price %>円</span>
+            </div>
+            <div class="btn-groupss">
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
+          <% if user_signed_in? && current_user.id == result.user_id %>
+            <% unless result.user_item%>
+                  
+                  <%= link_to(edit_item_path(result.id), method: :get, class: "item-red-btn") do%>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">編集</button>
+                  <% end %>
+                  <br>
+                  <%= link_to(item_path(result.id), method: :delete, class:'item-destroy') do%>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">削除</button>
+                  <% end %>
+                  
+            <%end%>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                  <%else%>
+                  
+            <% unless result.user_item%>
+                  <%= link_to(item_orders_path(result.id), method: :get, class: "item-red-btn") do%>
+                  <button type="button" class="btn btn-lg btn-block btn-danger">購入</button>
+                  <% end %>
+                  <br>
+                  <%= link_to(item_path(result.id), method: :get, class: "item-red-btn") do%>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-secondary">詳細</button>
+                  <% end %>
+                  </div>
+            <%end%>
+          <%end%>
+        </div> 
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+<h3 class="jumbotron-heading text-center">該当する商品はありません</h3>
+<% end %>
+
+
+<script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
+<script src="/docs/4.5/assets/js/src/application.js"></script>
+<script src="/docs/4.5/assets/js/src/search.js"></script>
+<script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
+  </body>
+</html>
