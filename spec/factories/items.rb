@@ -12,6 +12,7 @@ FactoryBot.define do
     category_id {3}
     user_id {1}
     association :user
-    
+    youtube_url{"https://youtu.be/0rIwEMDHWOI"}
+    quantity{1}
   end
 end
