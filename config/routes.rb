@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -13,9 +14,8 @@ Rails.application.routes.draw do
   root to: 'items#index'
   get 'items/search'
   resources :users
-  # post '/items/:item_id/likes' => "likes#create"
-  # delete '/items/:item_id/likes' => "likes#destroy"
-
+  get '/mypage' => 'users#mypage'
+  
   resources :items do
     collection do
       get 'recommend'

@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   has_one :user_item
   belongs_to :user
   has_one_attached :image
+  has_one_attached :video
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -17,9 +18,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :category_id
     validates :image
-    validates :youtube_url
     validates :quantity
-    # validates :rest_quantity
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
