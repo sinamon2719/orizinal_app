@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :users
   get '/mypage' => 'users#mypage'
   
+  resources :users, only: [:like, :show] do
+    collection do
+      get :likes
+    end
+  end
+  
   resources :items do
     collection do
       get 'recommend'
@@ -54,4 +60,5 @@ Rails.application.routes.draw do
   resources :items do
     resource :likes, only: [:create, :destroy]
   end
+  
 end

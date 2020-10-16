@@ -19,6 +19,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :image
     validates :quantity
+    validates :user_id
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
@@ -36,4 +37,5 @@ class Item < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
+
 end

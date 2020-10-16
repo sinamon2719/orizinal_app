@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item = Item.new(item_params)
     @item.assign_attributes(rest_quantity: item_params[:quantity])
     if @item.valid?
       @item.save

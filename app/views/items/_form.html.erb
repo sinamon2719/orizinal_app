@@ -1,4 +1,4 @@
-<ul class='item-lists'>
+<ul class='item-lists d-flex'>
       <% @items.each do |item| %>
       
     <li class='list col-md-3 mb-3 shadow-sm'>
@@ -10,7 +10,9 @@
       <% else %>
       <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  allowfullscreen ></iframe>
       <span>出品者のチャンネル情報</span> 
-      <%= raw Rinku.auto_link(h(item.channel))%>
+      <div class="url">
+      <%= raw Rinku.auto_link item.channel, :all, 'target="_blank"rel="noopener noreferrer"'%>
+      </div>
       <% end %>
       </div>
       <div class='item-img-contents-main w-100 d-flex'>
