@@ -10,7 +10,7 @@ If you watch the video, it is an EC site where you can immediately purchase your
  
 # DEMO
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+[サンプル.mp4.zip](https://github.com/sinamon2719/orizinal_app/files/5389268/mp4.zip)
  
 # Features
 
