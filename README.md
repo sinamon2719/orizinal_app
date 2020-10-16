@@ -73,8 +73,8 @@ It will also be a new place for YouTubers to play an active role.
  
  
 # ER diagram
- 
 
+![diagram2.png](https://github.com/sinamon2719/orizinal_app/blob/master/diagram2.png)
 
  
 # Screen transition diagram
