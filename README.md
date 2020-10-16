@@ -9,8 +9,7 @@ If you watch the video, it is an EC site where you can immediately purchase your
 
  
 # DEMO
- 
-[サンプル.mp4.zip](https://github.com/sinamon2719/orizinal_app/files/5389268/mp4.zip)
+ https://gyazo.com/e7c9818eba615ae14facfbca852cc993
  
 # Features
 
