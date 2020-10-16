@@ -59,10 +59,22 @@ It will also be a new place for YouTubers to play an active role.
 
 ③コメント関連<br>
   投稿機能<br>
+  
+# Skill set
 
+ HTML<br>
+ CSS<br>
+ Ruby<br>
+ Ruby on Rails<br>
+ jQuery<br>
+ Bootstrap<br>
+ MySQL<br>
+ 
+ 
  
 # ER diagram
  
+
 
  
 # Screen transition diagram
