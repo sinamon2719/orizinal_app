@@ -78,8 +78,8 @@ It will also be a new place for YouTubers to play an active role.
 
  
 # Screen transition diagram
+![diagram.png](https://github.com/sinamon2719/orizinal_app/blob/master/diagram.png)
  
-
  
 # Author
   
