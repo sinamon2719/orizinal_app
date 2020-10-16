@@ -4,7 +4,7 @@
 
 A new place for YOUTUBER to play an active role!
 If you watch the video, it is an EC site where you can immediately purchase your favorite products on the spot.
-  YOUTUBERの新しい活躍の場！
+<br>YOUTUBERの新しい活躍の場！
 動画を見れば、お気に入りの商品をその場ですぐに購入できるECサイトです。
 
  
@@ -18,7 +18,7 @@ Have you ever purchased a product on the Internet and found it different from wh
 It is an application that solves such problems
 By actually watching the video and then purchasing, you can check the product in more detail and purchase it.
 It will also be a new place for YouTubers to play an active role.
-  インターネットで商品を購入して、思っていたものと違うと思ったことはありませんか？
+<br>インターネットで商品を購入して、思っていたものと違うと思ったことはありませんか？
 そんな問題を解決するアプリです
 実際に動画を見て購入することで、商品の詳細を確認して購入することができます。
 また、YouTuberが積極的な役割を果たすための新しい場所にもなります。
@@ -38,27 +38,27 @@ It will also be a new place for YouTubers to play an active role.
 # List of application functions
  
 ①記事関連<br>
-  一覧表示機能
-  詳細表示機能
-  削除機能
-  編集機能
-  人気記事一覧表示機能
-  キーワード検索機能
-  いいね機能
-  動画表示機能
-  動画アップロード機能
-  カテゴリー別表示機能
-  YOUTUBEチャンネル遷移機能
+  一覧表示機能<br>
+  詳細表示機能<br>
+  削除機能<br>
+  編集機能<br>
+  人気記事一覧表示機能<br>
+  キーワード検索機能<br>
+  いいね機能<br>
+  動画表示機能<br>
+  動画アップロード機能<br>
+  カテゴリー別表示機能<br>
+  YOUTUBEチャンネル遷移機能<br>
 
 ②ユーザー関連<br>
-  登録機能
-  編集機能(アドレス・パスワード)
-  マイページ機能
-  ログイン・アウト機能
-  いいね一覧機能
+  登録機能<br>
+  編集機能(アドレス・パスワード)<br>
+  マイページ機能<br>
+  ログイン・アウト機能<br>
+  いいね一覧機能<br>
 
 ③コメント関連<br>
-  投稿機能
+  投稿機能<br>
 
  
 # ER diagram
