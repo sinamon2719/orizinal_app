@@ -1,5 +1,5 @@
 # README
-![readme 2.png](./images/readme 2.png)
+![readme 2.png](https://github.com/sinamon2719/orizinal_app/blob/master/readme%202.png)
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
