@@ -9,7 +9,7 @@ If you watch the video, it is an EC site where you can immediately purchase your
 
  
 # DEMO
- ![Uploading Videotogif (2).gif…](https://gyazo.com/e7c9818eba615ae14facfbca852cc993)　　 
+ ![Uploading Videotogif (2).gif…]()　　 
  
 # Features
 
