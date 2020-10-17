@@ -1,1 +1,8 @@
-<%= render 'items/form', items: @items %>
+<% @likes.each do |like| %>
+  <% item = Item.find_by(id: like.item_id) %>
+  <% user = User.find_by(id: item.user_id) %>
+  <%= user.nickname %>
+  <%= item.price %>
+  <%= item.video %>
+<% end %>
+

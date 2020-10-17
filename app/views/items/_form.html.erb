@@ -1,46 +1,54 @@
 <ul class='item-lists d-flex'>
-      <% @items.each do |item| %>
-      
+  <% @items.each do |item| %>
     <li class='list col-md-3 mb-3 shadow-sm'>
       <div class= 'item-contents'>
-      <% if item.video.attached? %>
-      <video src="<%= rails_blob_path(item.video) %>" type="video/mp4" width="150" height="150" controls></video>
-      <span>出品者のチャンネル情報</span> 
-      <span>なし</span> 
-      <% else %>
-      <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  allowfullscreen ></iframe>
-      <span>出品者のチャンネル情報</span> 
-      <div class="url">
-      <%= raw Rinku.auto_link item.channel, :all, 'target="_blank"rel="noopener noreferrer"'%>
+        <% if item.video.attached? %>
+          <video src="<%= rails_blob_path(item.video) %>" type="video/mp4" width="150" height="150" controls></video>
+            <span>出品者のチャンネル情報</span> 
+            <span>なし</span> 
+
+        <% else %>
+          <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"src="https://www.youtube.com/embed/<%= item.youtube_url.last(11)%>"  allowfullscreen ></iframe>
+            <span>出品者のチャンネル情報</span> 
+
+        <div class="url">
+          <%= raw Rinku.auto_link item.channel, :all, 'target="_blank"rel="noopener noreferrer"'%>
+        </div>
+
+        <% end %>
       </div>
-      <% end %>
-      </div>
+
+
       <div class='item-img-contents-main w-100 d-flex'>
         <div class='item-img-contents w-50'>
-        <div class="row">
-        <div class="col">
-          <%= image_tag item.image, class: "item-imgs "%> 
+
+          <div class="row">
+            <div class="col">
+              <%= image_tag item.image, class: "item-imgs "%> 
+            </div>
           </div>
-          </div>
+
           <% if item.rest_quantity == 0%>
             <div class='sold-out'>
               <span>Sold Out!!</span> 
             </div>
           <%end%> 
-          </div>
+        </div>
+
           <div class='item-show-box w-50'>
-          <div class='item-info'>
-            <h3 class='item-name w-100 h6 text-center'>
-              <%= item.name %>
-            </h3> 
+            <div class='item-info'>
+              <h3 class='item-name w-100 h6 text-center'>
+                <%= item.name %>
+              </h3> 
+
             <div class='item-price w-100 h6'>
               <span ><%= item.price %>円</span>
             </div>
-        <div class="btn-groupss">
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-          <% if user_signed_in? && current_user.id == item.user_id %>
-            <% unless item.user_item && item.rest_quantity == 0 %>
+
+              <div class="btn-groupss">
                   
+          <% if user_signed_in? && current_user.id == item.user_id %>
+              <% unless item.user_item && item.rest_quantity == 0 %>
                   <%= link_to(edit_item_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-lg btn-block btn-outline-secondary">編集</button>
                   <% end %>
@@ -48,10 +56,10 @@
                   <%= link_to(item_path(item.id), method: :delete, class:'item-destroy') do%>
                   <button type="button" class="btn btn-lg btn-block btn-danger">削除</button>
                   <% end %>
-                  
-            <%end%>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+              <%end%> 
+
                   <%else%>
+
             <% unless item.user_item && item.rest_quantity == 0 %>
                   <%= link_to(item_orders_path(item.id), method: :get, class: "item-red-btn") do%>
                   <button type="button" class="btn btn-lg btn-block btn-danger">購入</button>
@@ -63,16 +71,17 @@
                   </div>
             <%end%>
           <%end%>
-          <div class="main_contents">
+
+                  <div class="main_contents">
                     <div class="text-center" id="likes_buttons_<%= item.id %>">
                       <%= render partial: 'likes/like', locals: { item: item} %>
+                    </div>
                   </div>
-                  </div>
+
                   <div class='h6 text-center'>
-              <span>残り<%=item.rest_quantity%>個</span>
-            </div> 
-        </div> 
-        </div>
+                  <span>残り<%=item.rest_quantity%>個</span>
+                  </div> 
+        
       </div>
     </li>
   <%end%>

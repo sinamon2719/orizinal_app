@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
+  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby, :recommend, :shows, :earch, :category_seach, :category_all]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
-  before_action :direct_index, only: [:edit]
+  before_action :direct_index, only: [:edit, :destroy]
   before_action :search_item, only: [:category_seach, :search]
   
 
@@ -108,7 +108,7 @@ class ItemsController < ApplicationController
   end
 
   def search_item
-    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+    @p = Item.ransack(params[:q]) 
   end
 
   def set_item_column

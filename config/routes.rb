@@ -13,14 +13,13 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
   get 'items/search'
-  resources :users
-  get '/mypage' => 'users#mypage'
-  
-  resources :users, only: [:like, :show] do
-    collection do
-      get :likes
+  resources :users do
+    member do
+      get 'likes'
     end
   end
+  get '/mypage' => 'users#mypage'
+  # get 'users/:id/likes' => 'users#like'
   
   resources :items do
     collection do

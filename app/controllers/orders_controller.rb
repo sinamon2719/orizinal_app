@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
 
   def index
     return redirect_to root_path if !set_item.user_item.nil? || current_user.id == set_item.user_id
-
     @order = UserOrder.new
   end
 
@@ -12,11 +11,10 @@ class OrdersController < ApplicationController
     @order = UserOrder.new(order_params)
     if @order.valid?
       pay_item
-      @order.save # バリデーションをクリアした時
+      @order.save 
 
       rest_quantity = @item.rest_quantity - 1
       @item.update(rest_quantity: rest_quantity)
-      
       redirect_to root_path
     else
       render 'index'
@@ -32,14 +30,14 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
-      amount: @item.price, # 商品の値段
-      card: order_params[:token], # カードトークン
-      currency: 'jpy'                 # 通貨の種類(日本円)
+      amount: @item.price,
+      card: order_params[:token], 
+      currency: 'jpy'                 
     )
   end
 
   def move_to_index
-    redirect_to new_user_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless current_user
   end
 
   def set_item

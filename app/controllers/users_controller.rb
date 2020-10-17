@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:mypage, :edit, :update]
-  before_action :set_user, only: [:show, :edit, :update,:like]
+  before_action :set_user, only: [:show, :edit, :update,:likes]
 
-  def mypage
+  def index
     redirect_to user_path(current_user)
   end
 
@@ -15,16 +15,15 @@ class UsersController < ApplicationController
 
   def update
     if  @user.update(user_params)
-        redirect_to root_path(current_user)
+        redirect_to root_path
     else
         redirect_to edit_user_path(current_user)
     end
   end
   
-  def like
+  def likes
     @item = Item.find_by(id: params[:id])
-    @user = @item.user
-    @likes_count = Like.where(item_id: @item.id).count
+    @likes = Like.where(item_id: @item.id)
   end
 
   private

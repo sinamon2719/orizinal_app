@@ -10,41 +10,43 @@
     <script src="js/bootstrap.min.js"></script>
   </head>
 
-  <%= render 'category_heder', item: @item %>
+    <%= render 'category_heder', item: @item %>
   <body>
-  <br/><br/>
+  <br>
+  <br>
 <div class="container-fluids">
-    <div class="container-fluid">
+  <div class="container-fluid">
     <%=image_tag "portfolio/fullsize/21.png", class:"img-fluid mb-5 mt-5", :size =>'1020x780'%>
     <br>
     <%=image_tag "portfolio/fullsize/20.png", class:"img-fluid mb-5 mt-5", :size =>'1020x780'%>
-    </div>
+  </div>
 
-    <div class="container-fluid">
-      <div id="contens-row">
-      <%= render 'layouts/error_messages', model: @item %> 
-        <%= form_with model: @item, local: true do |f| %>
-        <h2 class= "font-weight-bold h2 mx-xl-5 my-xl-2">商品の情報を入力</h2>
+      <div class="container-fluid">
+        <div id="contens-row">
+          <%= render 'layouts/error_messages', model: @item %> 
+          <%= form_with model: @item, local: true do |f| %>
+          <h2 class= "font-weight-bold h2 mx-xl-5 my-xl-2">商品の情報を入力</h2>
           <br>
+
         <div id="contens-row"> 
           <div class="image-lists mx-xl-6"> 
-          <h6 class="text-danger">★どちらか一つ選択</h6>
+            <h6 class="text-danger">★どちらか一つ選択</h6>
             <div class="border border-danger" style="padding:10px;">
-            <div class= "font-weight-bold h6">1.動画をアップロード</div>
-            <%= f.file_field :video ,class:"mb-2"%>
-            <div class= "font-weight-bold h6">2.YOUTUBE 動画URL</div>
-            <h6>（他人の動画をアップロードするのは著作権違反です）</h6>
-            <%= f.text_field :youtube_url, placeholder: '動画.URL' , class:"items-text"%>
-            <br>
-            <%= f.text_field :channel, placeholder: 'チャンネル情報URL'%>
+              <div class= "font-weight-bold h6">1.動画をアップロード</div>
+              <%= f.file_field :video ,class:"mb-2"%>
+              <div class= "font-weight-bold h6">2.YOUTUBE 動画URL</div>
+              <h6>（他人の動画をアップロードするのは著作権違反です）</h6>
+              <%= f.text_field :youtube_url, placeholder: '動画.URL' , class:"items-text"%>
+              <br>
+              <%= f.text_field :channel, placeholder: 'チャンネル情報URL'%>
             </div>
             
             <br>
             <div class= "font-weight-bold h6">クリックして画像をアップロード</div>
             <%= f.file_field :image, id:"item-image" %>
-          <br>
-          <br>
-          <div class= "font-weight-bold h6">商品名</div>
+            <br>
+            <br>
+            <div class= "font-weight-bold h6">商品名</div>
 	          <div class="form-row">
 	            <div class="col-md-4 mb-3">
 	              <%= f.text_area :name, placeholder:"商品名", maxlength:"40" %>
@@ -62,57 +64,60 @@
                <%= f.number_field :quantity%>
               </div>
               <br>
-          <div class= "font-weight-bold h6">カテゴリー </div>
-            <div class="form-row">
-		          <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"mx-3"})%>
-	          </div>
+
+            <div class= "font-weight-bold h6">カテゴリー </div>
+              <div class="form-row">
+		            <%= f.collection_select(:category_id,Category.all , :id, :name, {}, {class:"mx-3"})%>
+	            </div>
+              <br>
+
+	          <div class= "font-weight-bold h6">配送料の負担</div>
+              <div class="form-row">
+	              <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {},{class:"mx-3"},)%>
+	            </div>
             <br>
 
-	       <div class= "font-weight-bold h6">配送料の負担</div>
-            <div class="form-row">
-	          <%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {},{class:"mx-3"},)%>
-	          </div>
-            <br>
+	          <div class= "font-weight-bold h6">発送元地域  </div>
+              <div class="form-row">
+	              <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"mx-3"}) %>
+	            </div>
+              <br>
 
-	      <div class= "font-weight-bold h6">発送元地域  </div>
-          <div class="form-row">
-	          <%= f.collection_select(:prefecture_id,Prefecture.all, :id, :name, {}, {class:"mx-3"}) %>
-	        </div>
-          <br>
+	          <div class= "font-weight-bold h6">発送までの日数  </div>
+              <div class="form-row">
+	            <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"mx-3"}) %>
+	            </div>
+              <br>
 
-	      <div class= "font-weight-bold h6">発送までの日数  </div>
-          <div class="form-row">
-	           <%= f.collection_select(:shipping_day_id,ShippingDay.all, :id, :name, {}, {class:"mx-3"}) %>
-	      </div>
-          <br>
+            <div class="price-content">
+              <div class="price-text">
+                <span>価格</span>
+              </div>
+              <span class="sell-yen">¥</span>
+              <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+            </div>
 
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        </div>
-
-        <div class="price-content">
-          <span>販売手数料 (10%)</span>
-          <span>
-            <span id='add-tax-price'></span>円
-          </span>
-        </div>
+            <div class="price-content">
+              <span>販売手数料 (10%)</span>
+                <span>
+                <span id='add-tax-price'></span>円
+                </span>
+            </div>
         
-        <div class="price-content">
-          <span>販売利益</span>
-            <span id='profit'></span>円
+            <div class="price-content">
+              <span>販売利益</span>
+              <span id='profit'></span>円
+            </div>
+            <br>
+
+            <button class="btn btn-primary mx-3 mb-5" type="submit">フォームを送信</button>
+            <a href="/items">
+            <button class="btn btn-dark mx-3 mb-5" type="button">戻る</button>
+            </a>
+            <% end %>
+          </div>
         </div>
-        <br>
-        <button class="btn btn-primary mx-3 mb-5" type="submit">フォームを送信</button>
-         <a href="/items">
-        <button class="btn btn-dark mx-3 mb-5" type="button">戻る</button>
-        </a>
-   <% end %>
-  </div>
-</div>
+      </div>
 </div>
 <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
