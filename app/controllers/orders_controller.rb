@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    return redirect_to root_path if !set_item.user_item.nil? || current_user.id == set_item.user_id
+    # return redirect_to root_path if !set_item.user_item.nil? || current_user.id == set_item.user_id
     @order = UserOrder.new
   end
 

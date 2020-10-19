@@ -4,7 +4,6 @@ RSpec.describe Item, type: :model do
     before do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.build(:item, user_id: @user.id)
-      @item = FactoryBot.build(:item)
       @item.image = fixture_file_upload('public/view/2.jpeg')
       @item.save
     end
@@ -20,11 +19,6 @@ RSpec.describe Item, type: :model do
           @item.image = nil
           @item.valid?
           expect(@item.errors.full_messages).to include("画像を入力してください")
-        end
-        it 'YOUTUBE URLが必須であること' do
-          @item.youtube_url = ''
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Youtube urlを入力してください")
         end
         it '商品名が必須であること' do
           @item.name = ''
@@ -100,6 +94,16 @@ RSpec.describe Item, type: :model do
           @item.price = '１１１'
           @item.valid?
           expect(@item.errors.full_messages).to include("価格は一覧にありません")
+        end
+        it 'YouTubeURL意外のURLを使用しないこと' do
+            @item.youtube_url = 'hoge'
+            @item.valid?
+            expect(@item.errors.full_messages).to include("Youtube urlを入力してください")
+        end
+        it '数量についての情報が必須であること' do
+          @item.quantity = ''
+          @item.valid?
+          expect(@item.errors.full_messages).to include("数量を入力してください")
         end
       end
     end

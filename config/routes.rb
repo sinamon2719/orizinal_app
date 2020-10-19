@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
   get '/mypage' => 'users#mypage'
-  # get 'users/:id/likes' => 'users#like'
   
   resources :items do
     collection do

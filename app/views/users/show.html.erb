@@ -4,10 +4,10 @@
   <div class="row">
     <div class="col-lg-3">
 
-      <h5 class="my-4 text-center"><%= @user.nickname  %>ユーザーページ</h5>
+      <h5 class="my-4 text-center"><%= @user.nickname  %>MY動画ページ</h5>
       <div class="list-group">
         <% if user_signed_in? && @user == current_user %>
-        <%= link_to "プロフィール編集", edit_user_path(current_user), class: "list-group-item" %>
+        <%= link_to "プロフィール編集", edit_user_registration_path, class: "list-group-item" %>
         <% end %>
         <%= link_to "いいねした商品",  likes_user_path(current_user.id), class: "list-group-item"%>
         <%= link_to "動画投稿", new_item_path, class: "list-group-item"%>

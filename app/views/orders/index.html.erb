@@ -11,18 +11,8 @@
         </h1>
             <div class='buy-item-info'>
               <%= image_tag @item.image, class: 'buy-item-img' %>
-              <div class='buy-item-right-content'>
-                <h2 class='buy-item-text'>
-                  <%= @item.content %>
-                </h2>
-              </div>
-
-              <div class='buy-item-price'>
-                    <p class='item-price-text'>¥<%= @item.price%></p>
-                    <p class='item-price-sub-text'>（税込）送料込み</p>
-              </div>
-            
             </div>
+            <div class='buy-item-right-content'>
     
           <%= form_with url:item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
           <%= render 'layouts/error_messages', model: @order %>

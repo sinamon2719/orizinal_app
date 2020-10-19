@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby, :recommend, :shows, :earch, :category_seach, :category_all]
+  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby, :recommend, :show, :search, :category_seach, :category_all]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
   before_action :direct_index, only: [:edit, :destroy]
   before_action :search_item, only: [:category_seach, :search]

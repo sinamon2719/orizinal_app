@@ -34,11 +34,12 @@
             <div class="border border-danger" style="padding:10px;">
               <div class= "font-weight-bold h6">1.動画をアップロード</div>
               <%= f.file_field :video ,class:"mb-2"%>
+              </label>
               <div class= "font-weight-bold h6">2.YOUTUBE 動画URL</div>
-              <h6>（他人の動画をアップロードするのは著作権違反です）</h6>
               <%= f.text_field :youtube_url, placeholder: '動画.URL' , class:"items-text"%>
+              <%= f.text_field :channel, placeholder: 'チャンネル情報(任意)'%>
               <br>
-              <%= f.text_field :channel, placeholder: 'チャンネル情報URL'%>
+              <h6>（著作権に注意してアップロードして下さい）</h6>
             </div>
             
             <br>
@@ -61,7 +62,7 @@
 
             <div class= "font-weight-bold h6">数量</div>
 	            <div class="form-row">
-               <%= f.number_field :quantity%>
+               <%= f.number_field :quantity, min: 1%>
               </div>
               <br>
 
