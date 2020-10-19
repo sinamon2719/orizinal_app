@@ -1,0 +1,29 @@
+
+<body>
+<ul class='item-lists d-flex'>
+  <div class="row">
+    <div class="col-lg-3">
+
+      <h5 class="my-4 text-center"><%= @user.nickname  %>MY動画ページ</h5>
+      <div class="list-group">
+        <% if user_signed_in? && @user == current_user %>
+        <%= link_to "プロフィール編集", edit_user_registration_path, class: "list-group-item" %>
+        <% end %>
+        <%= link_to "いいねした商品",  likes_user_path(current_user.id), class: "list-group-item"%>
+        <%= link_to "動画投稿", new_item_path, class: "list-group-item"%>
+        <%= link_to "動画検索", category_seach_items_path, class: "list-group-item"%>
+        <%= link_to "戻る", root_path, class: "list-group-item"%>
+      </div>
+
+    </div>
+
+      <div class="col-lg-9">
+        <div class="my-4 mx-4">
+          <%=image_tag "portfolio/fullsize/8.png", class:"d-block img-fluid mt-5",size:"825x300"%>
+        </div>
+      </div>
+      <%= render 'items/form', items: @items %>
+      </div>
+  </div>
+</ul>
+</body>

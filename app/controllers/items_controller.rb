@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby]
+  before_action :authenticate_user!, except: [:index, :education ,:appliances, :fashion, :cosmetics, :food, :hobby, :recommend, :show, :search, :category_seach, :category_all]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
-  before_action :direct_index, only: [:edit]
+  before_action :direct_index, only: [:edit, :destroy]
   before_action :search_item, only: [:category_seach, :search]
   
 
@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
     @item = Item.new(item_params)
     @item.assign_attributes(rest_quantity: item_params[:quantity])
     if @item.valid?
@@ -98,7 +97,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:quantity,:text,:body, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:channel, :video, :quantity, :text, :youtube_url, :image, :name, :content, :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, :price).merge(user_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
@@ -109,7 +108,7 @@ class ItemsController < ApplicationController
   end
 
   def search_item
-    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+    @p = Item.ransack(params[:q]) 
   end
 
   def set_item_column

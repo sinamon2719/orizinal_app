@@ -13,6 +13,7 @@ ja:
         shipping_day_id: 発送までの日数
         prefecture_id: 発送元の地域
         judgment_id: 商品の状態
+        quantity: 数量
   activemodel:
     attributes:      
       user_order:

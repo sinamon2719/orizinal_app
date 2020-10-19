@@ -11,32 +11,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    if params[:sns_auth] == 'true'
-      pass = Devise.friendly_token
-      params[:user][:password] = pass
-      params[:user][:password_confirmation] = pass
-    end
-    super
-  end
+  # def create
+  #   if params[:sns_auth] == 'true'
+  #     pass = Devise.friendly_token
+  #     params[:user][:password] = pass
+  #     params[:user][:password_confirmation] = pass
+  #   end
+  #   super
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if current_user.update(user_params)
+  #     redirect_to root_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  private
+  # private
 
-  def user_params
-    params.require(:user).permit(:nickname, :encrypted_password )
-  end
-end
+  # def user_params
+  #   params.require(:user).permit(:nickname, :encrypted_password )
+  # end
+
 
 
   # GET /resource/edit
@@ -63,8 +63,17 @@ end
   #   super
   # end
 
-  # protected
+  protected
 
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
+
+  def after_update_path_for(resource)
+    user_path(current_user.id)
+  end
+  
+end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

@@ -3,7 +3,11 @@ RSpec.describe UserOrder, type: :model do
   describe UserOrder do
     before do
       @user = FactoryBot.create(:user)
-      @item = FactoryBot.create(:item, user_id: @user.id)
+
+      @item = FactoryBot.build(:item, user_id: @user.id)
+      @item.image = fixture_file_upload('public/view/2.jpeg')
+      @item.save
+      
       @user_order = FactoryBot.build(:user_order, user_id: @user.id, item_id: @item.id)
     end
 

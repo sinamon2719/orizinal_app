@@ -10,8 +10,9 @@ FactoryBot.define do
     shipping_day_id {2}
     prefecture_id {2}
     category_id {3}
-    user_id {1}
+    user_id {2}
     association :user
-    
+    youtube_url{"https://youtu.be/0rIwEMDHWOI"}
+    quantity{1}
   end
 end

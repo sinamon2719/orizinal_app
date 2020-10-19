@@ -17,7 +17,6 @@ class UserOrder
 
 
 
-#オーダーモデル
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :phone_number, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000_000_000, message: '桁数が違います' }
   with_options presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフンを含んでください'} do
