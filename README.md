@@ -9,7 +9,7 @@ If you watch the video, it is an EC site where you can immediately purchase your
 
  
 # DEMO
- 
+![Alt Text](https://user-images.githubusercontent.com/70252059/96471527-67120680-126a-11eb-9a22-2f0c490768fa.gif)
  
 # Features
 
