@@ -9,7 +9,7 @@ If you watch the video, it is an EC site where you can immediately purchase your
 
  
 # DEMO
- https://github.com/sinamon2719/orizinal_app/blob/master/Videotogif%20(2).gif
+ 
  
 # Features
 
