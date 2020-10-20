@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_012916) do
+ActiveRecord::Schema.define(version: 2020_10_08_075138) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2020_10_13_012916) do
     t.integer "user_id"
     t.text "body"
     t.string "youtube_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "channel"
     t.integer "quantity", null: false
     t.integer "rest_quantity", default: 0
-    t.string "channel"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -11,6 +11,9 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.text    :body # 追加
       t.string  :youtube_url # 追加
+      t.string  :channel
+      t.integer :quantity,  null: false
+      t.integer :rest_quantity,  default: 0
       t.timestamps
     end
   end
