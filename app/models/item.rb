@@ -35,7 +35,7 @@ class Item < ApplicationRecord
   validate :image_presence
   validates :youtube_url, format: { with: /\A(https\:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)+[\S]{11}\z/ , message: 'を入力してください'},allow_blank: true
   validates :category_id, :shipping_cost_id, :shipping_day_id, :prefecture_id, numericality: { other_than: 1 }
-  validate :required_either_email_or_phone
+  # validate :required_either_email_or_phone
   
 
 

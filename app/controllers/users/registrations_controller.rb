@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  
   # GET /resource/sign_up
   # def new
   #   super
@@ -12,32 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   if params[:sns_auth] == 'true'
-  #     pass = Devise.friendly_token
-  #     params[:user][:password] = pass
-  #     params[:user][:password_confirmation] = pass
-  #   end
   #   super
   # end
-
-  # def edit
-  # end
-
-  # def update
-  #   if current_user.update(user_params)
-  #     redirect_to root_path
-  #   else
-  #     render :edit
-  #   end
-  # end
-
-  # private
-
-  # def user_params
-  #   params.require(:user).permit(:nickname, :encrypted_password )
-  # end
-
-
 
   # GET /resource/edit
   # def edit
@@ -63,22 +38,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  # protected
 
-  # def update_resource(resource, params)
-  #   resource.update_without_password(params)
-  # end
-
-  def after_update_path_for(resource)
-    user_path(current_user.id)
-  end
-  
-end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
+  # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
@@ -92,3 +59,4 @@ end
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+end

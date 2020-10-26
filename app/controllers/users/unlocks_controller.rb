@@ -5,22 +5,7 @@ class Users::UnlocksController < Devise::UnlocksController
   # def new
   #   super
   # end
-  def edit
-  end
 
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:nickname, :encrypted_password )
-  end
   # POST /resource/unlock
   # def create
   #   super

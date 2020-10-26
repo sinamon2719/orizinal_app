@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -22,23 +22,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:nickname, :encrypted_password)
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
-  def edit
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:nickname, :encrypted_password )
-  end
 end

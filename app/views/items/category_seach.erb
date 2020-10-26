@@ -37,8 +37,8 @@
 
           <div class="font-weight-bold h6 mx-5">
             <%= f.label :price %>
-            <%= f.number_field :price_gteq %>以上 ~
-            <%= f.number_field :price_lteq %>以下
+            <%= f.number_field :price_gteq, min: 1%>以上 ~
+            <%= f.number_field :price_lteq, min: 1%>以下
           </div>
           <br>
 
