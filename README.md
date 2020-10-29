@@ -10,8 +10,7 @@ YOUTUBERの新しい活躍の場！
 http://54.168.201.175/
  
 # DEMO
-![Alt Text](https://user-images.githubusercontent.com/70252059/96471527-67120680-126a-11eb-9a22-2f0c490768fa.gif)
- 
+![Alt Text](https://user-images.githubusercontent.com/70252059/97527763-7245fe80-19ef-11eb-8e89-a6f803f7d92c.gif)
 # 製作の背景
 
 ①インターネットで商品を購入して、『思っていたものと違う』と思ったことはありませんか？
