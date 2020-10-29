@@ -5,6 +5,9 @@
 YOUTUBERの新しい活躍の場！
 動画を見れば、お気に入りの商品をその場ですぐに購入できるECサイトです。
 
+# URL
+
+http://54.168.201.175/
  
 # DEMO
 ![Alt Text](https://user-images.githubusercontent.com/70252059/96471527-67120680-126a-11eb-9a22-2f0c490768fa.gif)
