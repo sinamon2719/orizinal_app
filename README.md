@@ -2,42 +2,57 @@
 ![readme 2.png](https://github.com/sinamon2719/orizinal_app/blob/master/readme%202.png)
 
 
-A new place for YOUTUBER to play an active role!
-If you watch the video, it is an EC site where you can immediately purchase your favorite products on the spot.
-<br>YOUTUBERの新しい活躍の場！
+YOUTUBERの新しい活躍の場！
 動画を見れば、お気に入りの商品をその場ですぐに購入できるECサイトです。
 
  
 # DEMO
 ![Alt Text](https://user-images.githubusercontent.com/70252059/96471527-67120680-126a-11eb-9a22-2f0c490768fa.gif)
  
-# Features
+# 製作の背景
 
-Have you ever purchased a product on the Internet and found it different from what you expected?
-It is an application that solves such problems
-By actually watching the video and then purchasing, you can check the product in more detail and purchase it.
-It will also be a new place for YouTubers to play an active role.
-<br>インターネットで商品を購入して、思っていたものと違うと思ったことはありませんか？
+①インターネットで商品を購入して、『思っていたものと違う』と思ったことはありませんか？
 そんな問題を解決するアプリです
-実際に動画を見て購入することで、商品の詳細を確認して購入することができます。
-また、YouTuberが積極的な役割を果たすための新しい場所にもなります。
+実際に動画を見て購入することで、商品の詳細をより詳しく確認して購入することができます。
+
+②私は動画編集を勉強しながらYOUTUBERとして活動していました。
+その時に感じたことが、YOUTUBEを始めたばかりの人の動画は、頑張って製作しても動画を見てもらうことが
+難しく、他にもYOUTUBERの活躍できる場所があればいいなと思っていました。
+
+このような経験から、『同じような悩みを抱えている人がいるのではないか？』と思い、このアプリを完成させました。
  
-# Requirement
+# 環境・使用技術
 
-  * MacOS 10.15.6
-  * Rails: 6.0.3.2
-  * MySQL 5.６.４７
-  * gem 'rails', '~> 6.0.0'
-  * gem 'bootsnap', '>= 1.4.2'
-  * gem 'ransack'
-  * gem 'rinku'
-  * gem 'active_hash'
-  * gem 'devise'
+フロントエンド<br>
+ ・HTML/CSS<br>
+ ・JavaScript<br>
+ ・jQuery<br>
+ ・Bootstrap<br>
+ 
+バックエンド<br>
+ ・Ruby ２.６.5<br>
+ ・Rails６.０.3<br>
+ 
+ Webサーバー<br>
+ ・Nginx：１．１８.0<br>
+ 
+ アプリケーションサーバー<br>
+ ・（開発環境）　Puma：４.３.3<br>
+ ・（本番環境）　Unicorn：５.４.１<br>
 
-# List of application functions
+ データベース<br>
+ ・（開発環境）　MySQL：５.６.４７<br>
+ ・（本番環境）　MySQL：５.６.４７<br>
+ 
+ インフラ<br>
+ ・AWS（EC2、S3）<br>
+ ・Git,GitHub<br>
+ ・Capistrano：３.14.1<br>
+ 
+# 機能一覧
  
 ①記事関連<br>
-  一覧表示機能<br>
+ 一覧表示機能<br>
   詳細表示機能<br>
   削除機能<br>
   編集機能<br>
