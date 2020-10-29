@@ -23,28 +23,28 @@ YOUTUBERの新しい活躍の場！
  
 # 環境・使用技術
 
-フロントエンド
+フロントエンド<br>
  ・HTML/CSS<br>
  ・JavaScript<br>
  ・jQuery<br>
  ・Bootstrap<br>
  
-バックエンド
+バックエンド<br>
  ・Ruby ２.６.5<br>
  ・Rails６.０.3<br>
  
- Webサーバー
+ Webサーバー<br>
  ・Nginx：１．１８.0<br>
  
- アプリケーションサーバー
+ アプリケーションサーバー<br>
  ・（開発環境）　Puma：４.３.3<br>
  ・（本番環境）　Unicorn：５.４.１<br>
 
- データベース
+ データベース<br>
  ・（開発環境）　MySQL：５.６.４７<br>
  ・（本番環境）　MySQL：５.６.４７<br>
  
- インフラ
+ インフラ<br>
  ・AWS（EC2、S3）<br>
  ・Git,GitHub<br>
  ・Capistrano：３.14.1<br>
