@@ -8,8 +8,14 @@ YOUTUBERの新しい活躍の場！
 # URL
 
 http://54.168.201.175/
- 
-# DEMO
+
+※テストカードによる決算処理も可能です。
+カード番号：　42424242424242４２
+有効期限：　３/23
+セキュリティーコード：　１２３
+
+
+# デモ
 ![Alt Text](https://user-images.githubusercontent.com/70252059/97527763-7245fe80-19ef-11eb-8e89-a6f803f7d92c.gif)
 # 製作の背景
 
@@ -76,24 +82,23 @@ http://54.168.201.175/
 ③コメント関連<br>
   投稿機能<br>
   
-# Skill set
+# こだわり
 
- HTML<br>
- CSS<br>
- Ruby<br>
- Ruby on Rails<br>
- jQuery<br>
- Bootstrap<br>
- MySQL<br>
+・YOUTUBEのチャンネル登録者を増やすために、URLからYOUTUBEのチャンネル情報を取得可能
+・背景に動画を表示することでインパクトのあるTOPページにした
+・購入画面では、動画を見てすぐに購入できるようなデザインを意識した
+・YOUTUBE以外の動画もアップロードできるように配慮
+・プロフィール機能では、自分がいいねをつけた記事が表示可能
+・動画検索機能
  
  
  
-# ER diagram
+# ER図
 
 ![diagram2.png](https://github.com/sinamon2719/orizinal_app/blob/master/diagram2.png)
 
  
-# Screen transition diagram
+# 画面遷移図
 ![diagram.png](https://github.com/sinamon2719/orizinal_app/blob/master/diagram.png)
  
  
